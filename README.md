@@ -6,33 +6,14 @@
 
 このシステムはiPadに搭載されているLiDARとカメラを用いて物理環境の形状を推定し，objファイル(3DCGで用いる物体の形状データを記録する形式)を出力するシステムです．つまり現実の空間やオブジェクト(物体)を3Dスキャンし，スキャンデータをobjファイルとして出力します．またスキャン時に現実世界の(Ceiling，Door，Floor，Seat，Table，Wall，Window，Noneの8種類の)オブジェクトを分類することができ，iPad上でそのオブジェクトのポリゴンをタップすると分類結果テキストが仮想オブジェクトとして表示されます．objファイルは全てのポリゴンを含んだものと(最大8種類の)分類ごとのポリゴンを含んだものが出力される(出力例は〜にあります)．
 
-このシステムはAppleが提供している「[VisualizingAndInteractingWithAReconstructedScene](https://developer.apple.com/jp/documentation/arkit/world_tracking/visualizing_and_interacting_with_a_reconstructed_scene/)」をベースにして開発を行いました．私が開発した部分は主にタップしたポリゴンの3頂点に仮想の赤い球体を配置する機能とobjファイルの出力を行う機能です．仮想球体を配置機能は分類するポリゴンをより可視化しやすくするために行いました．
+このシステムはAppleが提供している「[VisualizingAndInteractingWithAReconstructedScene](https://developer.apple.com/jp/documentation/arkit/world_tracking/visualizing_and_interacting_with_a_reconstructed_scene/)」をベースにして開発を行いました．私が開発した部分は主にタップしたポリゴンの3頂点に仮想の赤い球体を配置する機能とobjファイルの出力を行う機能です．仮想球体を配置機能は分類するポリゴンをより可視化しやすくするために作成しました．objファイル出力機能はスキャンしたものを確認したり他端末で処理するために作成しました．
 
+## 期間
+1ヶ月
 
-iPad OS 13.4以降を搭載した第4世代iPad Proでは、ARKitはLiDARスキャナーを使用して物理環境のポリゴンモデルを作成します。LiDARスキャナは、ユーザーの前方の広範囲から奥行き情報をすばやく取得するため、ARKitはユーザーが移動することなく現実世界の形状を推定できます。ARKitは、奥行き情報を一連の頂点に変換し、その頂点をつなげて*メッシュ*を形成します。情報を分割するために、ARKitは複数のアンカーを作成し、それぞれにメッシュの一意の部分を割り当てます。メッシュのアンカーを総称して、ユーザーの周りの現実世界の*シーン*を表します。
-
-これらのメッシュを使用すると、次のことが可能になります：
-* 現実世界のサーフェス上のポイントをより正確に特定する。
-* ARKitが認識できる現実世界のオブジェクトを分類します。
-* アプリの仮想コンテンツを、その前にある現実世界のオブジェクトでオクルードする。
-* 例えば、仮想のボールを現実世界の壁でバウンドさせ、ボールを物理法則に従わせるなど、仮想コンテンツが物理環境とリアルに相互作用します。
-
-このサンプルアプリでは、RealityKitを使ったAR体験を紹介しています。下図は、RealityKitがARKitから現実世界の情報を取得し、このアプリを実行して現実世界の椅子にデバイスを向けると、デバッグ用のビジュアライゼーションが作成される様子を示しています。
-
-RealityKitで可視化されたメッシュ・オーバーレイがカメラ・フィードに表示された椅子のスクリーンショット](Documentation/meshing3-annotated.png)
-
-
-www.DeepL.com/Translator（無料版）で翻訳しました。
-
-With these meshes, you can:
-* More accurately locate points on real-world surfaces.
-* Classify real-world objects that ARKit can recognize.
-* Occlude your app’s virtual content with real-world objects that are in front of it.
-* Have virtual content interact with the physical environment realistically, for example, by bouncing a virtual ball off a real-world wall and having the ball follow the laws of physics. 
-
-This sample app presents an AR experience using RealityKit. The figure below illustrates how RealityKit leverages real-world information from ARKit, and creates a debug visualization when you run this app and point the device at a real-world chair.
-
-![Screenshot of a chair visible in the camera feed with a mesh overlay visualized by RealityKit.](Documentation/meshing3-annotated.png)
+## 言語や使用フレームワーク
+言語：Swift
+フレームワーク：ARKit，RealityKit
 
 ## Visualize the Shape of the Physical Environment
 
