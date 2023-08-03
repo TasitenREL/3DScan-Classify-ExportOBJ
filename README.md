@@ -4,7 +4,24 @@
 
 ## 概要
 
-On a fourth-generation iPad Pro running iPad OS 13.4 or later, ARKit uses the LiDAR Scanner to create a polygonal model of the physical environment. The LiDAR Scanner quickly retrieves depth information from a wide area in front of the user, so ARKit can estimate the shape of the real world without requiring the user to move. ARKit converts the depth information into a series of vertices that connect to form a *mesh*. To partition the information, ARKit makes multiple anchors, each assigned a unique portion of the mesh. Collectively, the mesh anchors represent the real-world *scene* around the user.
+このシステムはiPadに搭載されているLiDARとカメラを用いて物理環境の形状を推定し，objファイル(3DCGで用いる物体の形状データを記録する形式)を出力するシステムです．つまり現実の空間やオブジェクト(物体)を3Dスキャンし，スキャンデータをobjファイルとして出力します．またスキャン時に現実成果の(7種類の)オブジェクトを分類することができ，iPad上でそのオブジェクトのポリゴンをタップすると分類結果テキストが仮想オブジェクトとして表示されます．objファイルは全てのポリゴンを含んだものと分類ごとのポリゴンを含んだものが出力される(出力例は〜にあります)．
+このシステムはAppleが提供している「VisualizingAndInteractingWithAReconstructedScene(https://developer.apple.com/jp/documentation/arkit/world_tracking/visualizing_and_interacting_with_a_reconstructed_scene/)」をベースにして開発を行いました．私が開発した部分は主にobjファイルの出力と
+
+
+iPad OS 13.4以降を搭載した第4世代iPad Proでは、ARKitはLiDARスキャナーを使用して物理環境のポリゴンモデルを作成します。LiDARスキャナは、ユーザーの前方の広範囲から奥行き情報をすばやく取得するため、ARKitはユーザーが移動することなく現実世界の形状を推定できます。ARKitは、奥行き情報を一連の頂点に変換し、その頂点をつなげて*メッシュ*を形成します。情報を分割するために、ARKitは複数のアンカーを作成し、それぞれにメッシュの一意の部分を割り当てます。メッシュのアンカーを総称して、ユーザーの周りの現実世界の*シーン*を表します。
+
+これらのメッシュを使用すると、次のことが可能になります：
+* 現実世界のサーフェス上のポイントをより正確に特定する。
+* ARKitが認識できる現実世界のオブジェクトを分類します。
+* アプリの仮想コンテンツを、その前にある現実世界のオブジェクトでオクルードする。
+* 例えば、仮想のボールを現実世界の壁でバウンドさせ、ボールを物理法則に従わせるなど、仮想コンテンツが物理環境とリアルに相互作用します。
+
+このサンプルアプリでは、RealityKitを使ったAR体験を紹介しています。下図は、RealityKitがARKitから現実世界の情報を取得し、このアプリを実行して現実世界の椅子にデバイスを向けると、デバッグ用のビジュアライゼーションが作成される様子を示しています。
+
+RealityKitで可視化されたメッシュ・オーバーレイがカメラ・フィードに表示された椅子のスクリーンショット](Documentation/meshing3-annotated.png)
+
+
+www.DeepL.com/Translator（無料版）で翻訳しました。
 
 With these meshes, you can:
 * More accurately locate points on real-world surfaces.
