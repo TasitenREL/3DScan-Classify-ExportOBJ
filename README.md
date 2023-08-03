@@ -1,4 +1,4 @@
-# Visualizing and Interacting with a Reconstructed Scene
+# 3DScan-Classify-ExportOBJ
 
 Estimate the shape of the physical environment using a polygonal mesh.
 
