@@ -1,8 +1,8 @@
 # 3DScan-Classify-ExportOBJ
 
-Estimate the shape of the physical environment using a polygonal mesh.
+ポリゴンメッシュを使用して物理環境の形状を推定し，objファイルを出力するシステムです．
 
-## Overview
+## 概要
 
 On a fourth-generation iPad Pro running iPad OS 13.4 or later, ARKit uses the LiDAR Scanner to create a polygonal model of the physical environment. The LiDAR Scanner quickly retrieves depth information from a wide area in front of the user, so ARKit can estimate the shape of the real world without requiring the user to move. ARKit converts the depth information into a series of vertices that connect to form a *mesh*. To partition the information, ARKit makes multiple anchors, each assigned a unique portion of the mesh. Collectively, the mesh anchors represent the real-world *scene* around the user.
 
