@@ -24,4 +24,5 @@
 
 ## 動作風景URL
 動作している様子を撮影しました．アプリを開始してしばらくするとスキャン結果のメッシュが生成され，タップすると仮想球体や分類結果の仮想テキストが表示されます．この動画では実行していませんが，「ObjFile Export」ボタンを押すとobjファイルが出力されます．
+
 URL:[https://youtube.com/shorts/ZHBsXgpZ7_w](https://youtube.com/shorts/ZHBsXgpZ7_w)
